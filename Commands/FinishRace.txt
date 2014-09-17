@@ -1,0 +1,17 @@
+
+###################### FINISH RACE ##########################
+
+#### FINISH LINE ####
+
+## ON CLOCK ##
+execute @e[name=Current_Finish] ~ ~ ~ scoreboard players set @a[r=3] current 1
+execute @e[name=Current_Finish] ~ ~ ~ gamemode 3 @a[r=3]
+execute @e[name=Current_Finish] ~ ~ ~ effect @a[r=3] clear
+execute @e[name=Current_Finish] ~ ~ ~ clear @a[r=3]
+execute @e[name=Current_Finish] ~ ~ ~ tp @a[r=3] @e[name=Current_Lobby,c=1]
+
+#### TEST FOR WINNER ####
+# This test should trigger a 1 time file strip
+scoreboard players add @p[score_current_min=1] races 1
+	scoreboard objectives setdisplay sidebar races
+	title @a title {"text":"","color":"green","extra":[{"selector":"@p[score_current_min=1]"},{"text":" wins!"}]}
