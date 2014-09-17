@@ -1,0 +1,22 @@
+###################### SETUP/RESET MAP ##########################
+
+# Put all of this into a 1 time fill strip, to allow fast Setup/Reset
+
+scoreboard objectives add checkpoints dummy Checkpoint Reached
+ scoreboard players set @a checkpoints 1
+ scoreboard players set @a checkpoints 0
+
+scoreboard objectives add races dummy Races Won
+ scoreboard players set @a races 1
+ scoreboard players set @a races 0
+
+scoreboard objectives add current dummy Current
+ scoreboard players set @a current 1
+ scoreboard players set @a current 0
+
+scoreboard objectives add vars dummy Variables
+ # CurrentRaceState: 0 = Nothing, 1 = Starting, 2 = Racing, 3 = Finished
+ scoreboard players set CurrentRaceState vars 1
+ scoreboard players set CurrentRaceState vars 0
+
+title @a times 5 10 5
