@@ -17,7 +17,12 @@
 # Stop Armor Stands dropping
 /entitydata @e[type=ArmorStand] {NoGravity:true}
 
+# Make all invulnerable and lock slots
+/entitydata @e[type=ArmorStand] {Invulnerable:true,DisabledSlots:2039583}
+/entitydata @e[type=ArmorStand] {Invulnerable:false,DisabledSlots:0}
 
+# Hold Right Arm by Head
+/entitydata @e[type=ArmorStand,r=3] {Pose:{RightArm:[180f,0f,30f]}}
 
 ###################### WHEN AT POWERUPS ##########################
 
