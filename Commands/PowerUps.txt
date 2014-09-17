@@ -1,29 +1,3 @@
-##################### Helpful ####################################
-
-# Name Armor Stand when standing by it
-/entitydata @e[type=ArmorStand,r=3] {CustomName:"CheckPoint_1"}
-/entitydata @e[type=ArmorStand,r=3] {CustomName:"CheckPoint_2"}
-/entitydata @e[type=ArmorStand,r=3] {CustomName:"CheckPoint_3"}
-/entitydata @e[type=ArmorStand,r=3] {CustomName:"CheckPoint_4"}
-/entitydata @e[type=ArmorStand,r=3] {CustomName:"PowerUp_Speed"}
-/entitydata @e[type=ArmorStand,r=3] {CustomName:"PowerUp_SlowOthers"}
-
-# Hide all Armor Stands
-/entitydata @e[type=ArmorStand] {Invisible:true}
-
-# Show all Armor Stands
-/entitydata @e[type=ArmorStand] {Invisible:false}
-
-# Stop Armor Stands dropping
-/entitydata @e[type=ArmorStand] {NoGravity:true}
-
-# Make all invulnerable and lock slots
-/entitydata @e[type=ArmorStand] {Invulnerable:true,DisabledSlots:2039583}
-/entitydata @e[type=ArmorStand] {Invulnerable:false,DisabledSlots:0}
-
-# Hold Right Arm by Head
-/entitydata @e[type=ArmorStand,r=3] {Pose:{RightArm:[180f,0f,30f]}}
-
 ###################### POWERUPS ##########################
 
 #### SPEED BOOST ####
