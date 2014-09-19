@@ -2,12 +2,12 @@
 
 ## REQUEST NEW RACE ##
 # Single command block with a button that can be placed anywhere
-scoreboard players set CurrentRaceState vars 1
+scoreboard players set CurrentRaceState vars 2
 
 ## START NEW RACE#
-# This checks to see if CurrentRaceState = 1 and then executes all other commands using a 1 time fill strip
+# This checks to see if CurrentRaceState = 2 and then executes all other commands using a 1 time fill strip
 
-scoreboard players test CurrentRaceState vars 1 1
+scoreboard players test CurrentRaceState vars 2 2
 	scoreboard players set @a checkpoints 0
 	scoreboard players set @a current 0
 	scoreboard objectives setdisplay sidebar checkpoints
@@ -15,4 +15,4 @@ scoreboard players test CurrentRaceState vars 1 1
 	title @a title Go!
 	tp @a @e[name=Current_Start]
 	effect @a 1 1000 15
-	scoreboard players set CurrentRaceState vars 2
+	scoreboard players set CurrentRaceState vars 3
