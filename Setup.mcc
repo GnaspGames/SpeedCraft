@@ -1,32 +1,52 @@
 ###################### SETUP/RESET MAP ##########################
-# Put all of this into a 1 time fill strip, to allow fast Setup/Reset
 
-# Setup Titles
-title @a times 5 10 5
+## Variables Reference ##
 
-#### VARS ####
-scoreboard objectives remove vars
-scoreboard objectives add vars dummy Variables
- 
+# GameState: 
+# 	0 = NotLoaded
+# 	1 = Loaded
+#
 # CurrentRaceState: 
 # 	1 = Nothing
 # 	2 = Starting
 # 	3 = Racing
-# 	4 = Finished
-scoreboard players set CurrentRaceState vars 1
+# 	4 = FirstPlayerFinished
+# 	5 = SecondPlayerFinished
+# 	6 = ThirdPlayerFinished
+# 	7 = AllPlayersFinished
 
-#### CHECKPOINT REACHED ####
-scoreboard objectives add checkpoints dummy Checkpoint Reached
- scoreboard players set @a checkpoints 1
- scoreboard players set @a checkpoints 0
-
-#### RACES WON ####
-scoreboard objectives add races dummy Races Won
- scoreboard players set @a races 1
- scoreboard players set @a races 0
-
-#### CURRENT RACE ####
-scoreboard objectives add current dummy Current
- scoreboard players set @a current 1
- scoreboard players set @a current 0
+# Initial Setup / Trigger Complete Restart! 
+button:
+	scoreboard objectives remove vars
+	scoreboard objectives add vars dummy Variables
+	scoreboard players set GameState vars 0
+	setblock -95 56 1658 minecraft:redstone_block
+	
+# Check for GameState 1, meaning that the game needs to be loaded.
+fill clock:
+	scoreboard players test GameState vars 0 0
+		fill ~1 ~ ~ ~8 ~ ~ redstone_block
+			# Gamerules
+			gamerule commandBlockOutput false
+			gamerule doDaylightCycle false
+			gamerule logAdminCommands false
+			# Setup titles timing
+			title @a times 5 10 5
+			# Add CurrentRaceState variable
+			scoreboard players set CurrentRaceState vars 1
+			# Add objective for showing checkpoints
+			scoreboard objectives remove checkpoints
+			scoreboard objectives add checkpoints dummy Checkpoint Reached
+			scoreboard players set @a checkpoints 0
+			# Add objective for show how many races won
+			scoreboard objectives remove races
+			scoreboard objectives add races dummy Races Won
+			scoreboard players set @a races 0
+			# Objective for tracking position of finished players
+			scoreboard objectives remove current
+			scoreboard objectives add current dummy Current
+			scoreboard players set @a current 0
+			# Move on GameState
+			scoreboard players set GameState vars 1
+		fill ~1 ~ ~ ~-8 ~ ~ wool 5
  
