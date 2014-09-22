@@ -1,33 +1,29 @@
 ###################### POWERUPS ##########################
 
-#### SPEED BOOST ####
+## SPEED BOOST ##
+# Speed boost gives the player x40 speed
+fill clock:
+	tp @e[name=PowerUp_Speed] ~ ~ ~ ~5 ~
+	execute @e[name=PowerUp_Speed] ~ ~ ~ particle reddust ~ ~0.05 ~ 1 1 1 1 5
+	execute @e[name=PowerUp_Speed] ~ ~ ~ effect @a[r=0] 1 1000 40 true 
+	execute @e[name=PowerUp_Speed] ~ ~ ~ testfor @a[r=2]
+		execute @e[name=PowerUp_Speed] ~ ~ ~ title @a[r=2] title 
+		{
+			"text":"Speed Boost!",
+			"color":"blue" 
+		}
 
-## CREATING ##
-# PowerUp_Speed is to be displayed 0.5 meters off the ground with Diamond Boots
-# To do this, place an Armor Stand, give it boots, then run these commands
-/entitydata @e[type=ArmorStand,r=3] {CustomName:"PowerUp_Speed",NoGravity:true,Invisible:true,Invulnerable:true,DisabledSlots:2039583}
-/tp @e[type=ArmorStand,r=3] ~ ~0.5 ~
-
-## ON CLOCK ##
-tp @e[name=PowerUp_Speed] ~ ~ ~ ~5 ~
-execute @e[name=PowerUp_Speed] ~ ~ ~ particle reddust ~ ~0.05 ~ 1 1 1 1 5
-execute @e[name=PowerUp_Speed] ~ ~ ~ effect @a[r=0] 1 1000 40 true 
-execute @e[name=PowerUp_Speed] ~ ~ ~ testfor @a[r=2]
-    execute @e[name=PowerUp_Speed] ~ ~ ~ title @a[r=2] title {"text":"Speed Boost!","color":"blue"}
-
-#### SLOW OTHERS ####
-
-## CREATING ##
-# PowerUp_SlowOthers is to be displayed 0.5 meters into the ground with a Slowness Slash Potion in it's hand
-# To do this, place an Armor Stand, give it the potion, then run these commands
-/entitydata @e[type=ArmorStand,r=3] {CustomName:"PowerUp_SlowOthers",NoGravity:true,Invisible:true,Invulnerable:true,DisabledSlots:2039583,Pose:{RightArm:[180f,0f,30f]}}
-/tp @e[type=ArmorStand,r=3] ~ ~-0.5 ~
-
-## ON CLOCK ##
-// Remove and then give (always leaves 1)
-tp @e[name=PowerUp_SlowOthers] ~ ~ ~ ~5 ~
-execute @e[name=PowerUp_SlowOthers] ~ ~ ~ particle reddust ~ ~0.05 ~ 1 1 1 1 5
-execute @e[name=PowerUp_SlowOthers] ~ ~0.5 ~ clear @a[r=0] potion 16394
-execute @e[name=PowerUp_SlowOthers] ~ ~0.5 ~ give @a[r=0] potion 1 16394
-execute @e[name=PowerUp_SlowOthers] ~ ~ ~ testfor @a[r=2]
-    execute @e[name=PowerUp_SlowOthers] ~ ~ ~ title @a[r=2] title {"text":"Splash Slowness!","color":"red"}
+## SLOW SPLASH ##
+# Slow Splash gives the player a Slowness Slash Potion which they can throw on other players
+# Remove 1 potion and then give 1 potion (always leaves 1)
+fill clock:
+	tp @e[name=PowerUp_SlowOthers] ~ ~ ~ ~5 ~
+	execute @e[name=PowerUp_SlowOthers] ~ ~ ~ particle reddust ~ ~0.05 ~ 1 1 1 1 5
+	execute @e[name=PowerUp_SlowOthers] ~ ~0.5 ~ clear @a[r=0] potion 16394
+	execute @e[name=PowerUp_SlowOthers] ~ ~0.5 ~ give @a[r=0] potion 1 16394
+	execute @e[name=PowerUp_SlowOthers] ~ ~ ~ testfor @a[r=2]
+		execute @e[name=PowerUp_SlowOthers] ~ ~ ~ title @a[r=2] title 
+		{
+			"text":"Splash Slowness!",
+			"color":"red" 
+		}
