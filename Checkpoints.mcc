@@ -1,32 +1,38 @@
 ###################### CHECKPOINTS ##########################
 
-## CREATING ##
-# CheckPoints are invisible Armor Stands. We will build structures around them, so no need to see them.
-# To create a CheckPoint, place an Armor Stand in the middle of the track (no more than 7 blocks wide), stand near it, and run the following command
-# Substitute the name (CheckPoint_1) with the correct number
-/entitydata @e[type=ArmorStand,r=3] {CustomName:"CheckPoint_1",NoGravity:true,Invisible:true,Invulnerable:true,DisabledSlots:2039583}
+fill clock:
+	execute @e[name=CheckPoint_1] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 1
+	execute @e[name=CheckPoint_2] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 2
+	execute @e[name=CheckPoint_2] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 3
+	execute @e[name=CheckPoint_4] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 4
 
+	execute @e[name=CheckPoint_1] ~ ~ ~ playsound random.successful_hit @a[r=4]
+	execute @e[name=CheckPoint_2] ~ ~ ~ playsound random.successful_hit @a[r=4]
+	execute @e[name=CheckPoint_3] ~ ~ ~ playsound random.successful_hit @a[r=4]
+	execute @e[name=CheckPoint_4] ~ ~ ~ playsound random.successful_hit @a[r=4]
 
-## ON CLOCK ##
+	execute @e[name=CheckPoint_1] ~ ~ ~ testfor @a[r=4]
+		execute @e[name=CheckPoint_1] ~ ~ ~ title @a[r=4] title
+		{
+			"text":"Checkpoint 1"
+		}
 
-execute @e[name=CheckPoint_1] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 1
-execute @e[name=CheckPoint_2] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 2
-execute @e[name=CheckPoint_2] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 3
-execute @e[name=CheckPoint_4] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 4
+	execute @e[name=CheckPoint_2] ~ ~ ~ testfor @a[r=4]
+		execute @e[name=CheckPoint_2] ~ ~ ~ title @a[r=4] title
+		{
+			"text":"Checkpoint 2"
+		}
 
-execute @e[name=CheckPoint_1] ~ ~ ~ playsound random.successful_hit @a[r=4]
-execute @e[name=CheckPoint_2] ~ ~ ~ playsound random.successful_hit @a[r=4]
-execute @e[name=CheckPoint_3] ~ ~ ~ playsound random.successful_hit @a[r=4]
-execute @e[name=CheckPoint_4] ~ ~ ~ playsound random.successful_hit @a[r=4]
+	execute @e[name=CheckPoint_3] ~ ~ ~ testfor @a[r=4]
+		execute @e[name=CheckPoint_3] ~ ~ ~ title @a[r=4] title
+		{
+			"text":"Checkpoint 3"
+		}
 
-execute @e[name=CheckPoint_1] ~ ~ ~ testfor @a[r=4]
-    execute @e[name=CheckPoint_1] ~ ~ ~ title @a[r=4] title {"text":"Checkpoint 1"}
+	execute @e[name=CheckPoint_4] ~ ~ ~ testfor @a[r=4]
+		execute @e[name=CheckPoint_4] ~ ~ ~ title @a[r=4] title 
+		{
+			"text":"Checkpoint 4"
+		}
 
-execute @e[name=CheckPoint_2] ~ ~ ~ testfor @a[r=4]
-    execute @e[name=CheckPoint_2] ~ ~ ~ title @a[r=4] title {"text":"Checkpoint 2"}
-
-execute @e[name=CheckPoint_3] ~ ~ ~ testfor @a[r=4]
-    execute @e[name=CheckPoint_3] ~ ~ ~ title @a[r=4] title {"text":"Checkpoint 3"}
-
-execute @e[name=CheckPoint_4] ~ ~ ~ testfor @a[r=4]
-    execute @e[name=CheckPoint_4] ~ ~ ~ title @a[r=4] title {"text":"Checkpoint 4"}
+TODO: Set as spawnpoints for if player dies
