@@ -17,11 +17,13 @@
 
 # Initial Setup / Trigger Complete Restart! 
 button:
-	scoreboard objectives remove vars
-	scoreboard objectives add vars dummy Variables
-	scoreboard players set GameState vars 0
-	setblock -95 56 1658 minecraft:redstone_block
-	
+	fill ~1 ~ ~ ~4 ~ ~ redstone_block
+		scoreboard objectives remove vars
+		scoreboard objectives add vars dummy Variables
+		scoreboard players set GameState vars 0
+		setblock -95 56 1658 minecraft:redstone_block
+	fill ~1 ~ ~ ~-4 ~ ~ wool 5
+
 # Check for GameState 1, meaning that the game needs to be loaded.
 fill clock:
 	scoreboard players test GameState vars 0 0
@@ -49,4 +51,3 @@ fill clock:
 			# Move on GameState
 			scoreboard players set GameState vars 1
 		fill ~1 ~ ~ ~-8 ~ ~ wool 5
- 
