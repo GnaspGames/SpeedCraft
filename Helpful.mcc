@@ -42,10 +42,11 @@
 	# PowerUp_Speed is to be displayed 0.5 meters off the ground with Diamond Boots
 	# To do this, place an Armor Stand, give it boots, then run these commands
 	/entitydata @e[type=ArmorStand,r=3] {CustomName:"PowerUp_Speed",NoGravity:true,Invisible:true,Invulnerable:true,DisabledSlots:2039583}
-	/tp @e[type=ArmorStand,r=3] ~ ~0.5 ~
+	/tp @e[name=PowerUp_Speed,r=3] ~ ~0.5 ~
 	
 	## SLOW SPLASH ##
 	# PowerUp_SlowOthers is to be displayed 0.5 meters into the ground with a Slowness Slash Potion in it's hand
 	# To do this, place an Armor Stand, give it the potion, then run these commands
 	/entitydata @e[type=ArmorStand,r=3] {CustomName:"PowerUp_SlowOthers",NoGravity:true,Invisible:true,Invulnerable:true,DisabledSlots:2039583,Pose:{RightArm:[180f,0f,30f]}}
-	/tp @e[type=ArmorStand,r=3] ~ ~-0.5 ~
+	/tp @e[name=PowerUp_SlowOthers,r=3] ~ ~-0.5 ~
+
