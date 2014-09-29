@@ -1,10 +1,10 @@
 ###################### CHECKPOINTS ##########################
 
 fill clock:
-	execute @e[name=CheckPoint_1] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 1
-	execute @e[name=CheckPoint_2] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 2
-	execute @e[name=CheckPoint_2] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 3
-	execute @e[name=CheckPoint_4] ~ ~ ~ scoreboard players set @a[r=3] checkpoints 4
+	execute @e[name=CheckPoint_1] ~ ~ ~ scoreboard players set @a[r=4] checkpoints 1
+	execute @e[name=CheckPoint_2] ~ ~ ~ scoreboard players set @a[r=4] checkpoints 2
+	execute @e[name=CheckPoint_2] ~ ~ ~ scoreboard players set @a[r=4] checkpoints 3
+	execute @e[name=CheckPoint_4] ~ ~ ~ scoreboard players set @a[r=4] checkpoints 4
 
 	execute @e[name=CheckPoint_1] ~ ~ ~ playsound random.successful_hit @a[r=4]
 	execute @e[name=CheckPoint_2] ~ ~ ~ playsound random.successful_hit @a[r=4]
