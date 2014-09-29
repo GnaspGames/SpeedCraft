@@ -3,27 +3,27 @@
 ## SPEED BOOST ##
 # Speed boost gives the player x40 speed
 fill clock:
-	tp @e[name=PowerUp_Speed] ~ ~ ~ ~5 ~
+	tp @e[name=PowerUp_Speed] ~ ~ ~ ~1 ~
 	execute @e[name=PowerUp_Speed] ~ ~ ~ particle reddust ~ ~0.05 ~ 1 1 1 1 5
 	execute @e[name=PowerUp_Speed] ~ ~ ~ effect @a[r=0] 1 1000 40 true 
-	execute @e[name=PowerUp_Speed] ~ ~ ~ testfor @a[r=2]
-		execute @e[name=PowerUp_Speed] ~ ~ ~ title @a[r=2] title 
-		{
-			"text":"Speed Boost!",
-			"color":"blue" 
-		}
+	execute @e[name=PowerUp_Speed] ~ ~ ~ title @a[r=0] title 
+	{
+		"text":"Speed Boost!",
+		"color":"blue" 
+	}
+	execute @e[name=PowerUp_Speed] ~ ~ ~ playsound random.successful_hit @a[r=0]
 
 ## SLOW SPLASH ##
 # Slow Splash gives the player a Slowness Slash Potion which they can throw on other players
 # Remove 1 potion and then give 1 potion (always leaves 1)
 fill clock:
-	tp @e[name=PowerUp_SlowOthers] ~ ~ ~ ~5 ~
+	tp @e[name=PowerUp_SlowOthers] ~ ~ ~ ~1 ~
 	execute @e[name=PowerUp_SlowOthers] ~ ~ ~ particle reddust ~ ~0.05 ~ 1 1 1 1 5
 	execute @e[name=PowerUp_SlowOthers] ~ ~0.5 ~ clear @a[r=0] potion 16394
 	execute @e[name=PowerUp_SlowOthers] ~ ~0.5 ~ give @a[r=0] potion 1 16394
-	execute @e[name=PowerUp_SlowOthers] ~ ~ ~ testfor @a[r=2]
-		execute @e[name=PowerUp_SlowOthers] ~ ~ ~ title @a[r=2] title 
-		{
-			"text":"Splash Slowness!",
-			"color":"red" 
-		}
+	execute @e[name=PowerUp_SlowOthers] ~ ~ ~ title @a[r=0] title 
+	{
+		"text":"Splash Slowness!",
+		"color":"red" 
+	}
+	execute @e[name=PowerUp_SlowOthers] ~ ~ ~ playsound random.successful_hit @a[r=0]
