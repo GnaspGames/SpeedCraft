@@ -16,6 +16,6 @@ fill clock:
 			gamemode adventure @a
 			title @a title Go!
 			tp @a @e[name=Current_Start]
-			effect @a 1 1000 15
+			effect @a 1 1000 15 true
 			scoreboard players set CurrentRaceState vars 3
 		fill ~1 ~ ~ ~-8 ~ ~ wool 5
