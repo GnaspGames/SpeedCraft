@@ -1,20 +1,5 @@
 ###################### SETUP/RESET MAP ##########################
 
-## Variables Reference ##
-
-# GameState: 
-# 	0 = NotLoaded
-# 	1 = Loaded
-#
-# CurrentRaceState: 
-# 	1 = Nothing
-# 	2 = Starting
-# 	3 = Racing
-# 	4 = FirstPlayerFinished
-# 	5 = SecondPlayerFinished
-# 	6 = ThirdPlayerFinished
-# 	7 = AllPlayersFinished
-
 # Initial Setup / Trigger Complete Restart! 
 button:
 	fill ~1 ~ ~ ~4 ~ ~ redstone_block
