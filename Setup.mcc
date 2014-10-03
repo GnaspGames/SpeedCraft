@@ -2,25 +2,38 @@
 
 # Initial Setup / Trigger Complete Restart! 
 button:
-	fill ~1 ~ ~ ~4 ~ ~ redstone_block
+	fill ~1 ~ ~ ~3 ~ ~ redstone_block
 		scoreboard objectives remove vars
 		scoreboard objectives add vars dummy Variables
-		scoreboard players set GameState vars 0
-		setblock -95 56 1658 minecraft:redstone_block
-	fill ~1 ~ ~ ~-4 ~ ~ wool 5
+		scoreboard players set MapState vars 0
+	fill ~1 ~ ~ ~-3 ~ ~ wool 5
 
-# Check for GameState 1, meaning that the game needs to be loaded.
+# Check for MapState 0, meaning that the map needs to be loaded.
 fill clock:
-	scoreboard players test GameState vars 0 0
-		fill ~1 ~ ~ ~8 ~ ~ redstone_block
+	scoreboard players test MapState vars 0 0
+		fill ~1 ~ ~ ~7 ~ ~ redstone_block
 			# Gamerules
 			gamerule commandBlockOutput false
 			gamerule doDaylightCycle false
 			gamerule logAdminCommands false
+			gamerule doMobSpawning false
+			gamerule mobGriefing false
+			# Add SpeedCraft_GameState variable to trigger SpeedCraft load/reset
+			scoreboard players set SpeedCraft_GameState vars 0
+			# Change MapState to loaded
+			scoreboard players set MapState vars 1
+		fill ~-1 ~ ~ ~-7 ~ ~ wool 5
+
+###################### SETUP/RESET SPEEDCRAFT ##########################
+
+# Check for SpeedCraft_GameState 1, meaning that the game needs to be loaded.
+fill clock:
+	scoreboard players test SpeedCraft_GameState vars 0 0
+		fill ~1 ~ ~ ~12 ~ ~ redstone_block
 			# Setup titles timing
 			title @a times 5 10 5
-			# Add CurrentRaceState variable
-			scoreboard players set CurrentRaceState vars 1
+			# Add SpeedCraft_RaceState variable
+			scoreboard players set SpeedCraft_RaceState vars 1
 			# Add objective for showing checkpoints
 			scoreboard objectives remove checkpoints
 			scoreboard objectives add checkpoints dummy Checkpoint Reached
@@ -33,6 +46,6 @@ fill clock:
 			scoreboard objectives remove current
 			scoreboard objectives add current dummy Current
 			scoreboard players set @a current 0
-			# Move on GameState
-			scoreboard players set GameState vars 1
-		fill ~1 ~ ~ ~-8 ~ ~ wool 5
+			# Move on SpeedCraft_GameState
+			scoreboard players set SpeedCraft_GameState vars 1
+		fill ~-1 ~ ~ ~-12 ~ ~ wool 5

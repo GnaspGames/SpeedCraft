@@ -3,12 +3,12 @@
 ## REQUEST NEW RACE ##
 # Single command block with a button that can be placed anywhere
 button:
-	scoreboard players set CurrentRaceState vars 2
+	scoreboard players set SpeedCraft_RaceState vars 2
 
 ## START NEW RACE#
-# This checks to see if CurrentRaceState = 2 and then executes all other commands using a 1 time fill strip
+# This checks to see if SpeedCraft_RaceState = 2 and then executes all other commands using a 1 time fill strip
 fill clock:
-	scoreboard players test CurrentRaceState vars 2 2
+	scoreboard players test SpeedCraft_RaceState vars 2 2
 		fill ~1 ~ ~ ~8 ~ ~ redstone_block
 			scoreboard players set @a checkpoints 0
 			scoreboard players set @a current 0
@@ -17,5 +17,5 @@ fill clock:
 			title @a title Go!
 			tp @a @e[name=Current_Start]
 			effect @a 1 1000 15 true
-			scoreboard players set CurrentRaceState vars 3
+			scoreboard players set SpeedCraft_RaceState vars 3
 		fill ~1 ~ ~ ~-8 ~ ~ wool 5

@@ -2,21 +2,25 @@ Global Variables scoreboard (vars)
 ==================================
 Uses fake players to hold values
 
-**GameState**
+**MapState**
+0 = NotLoaded
+1 = Loaded
+
+**SpeedCraft_GameState**
 0 = NotLoaded
 1 = Loaded
 2 = Tutorial
 3 = SingleRace
 4 = Championship
 
-**CurrentTrack**
+**FUTURE: SpeedCraft_CurrentTrack**
 1 = Jungle
 2 = Beach
 3 = ?
 4 = ?
 5 = ?
 
-**CurrentRaceState**
+**SpeedCraft_RaceState**
 1 = Stopped
 2 = Starting
 3 = Started
@@ -24,6 +28,22 @@ Uses fake players to hold values
 5 = SecondPlayerFinished
 6 = ThirdPlayerFinished
 7 = AllPlayersFinished
+
+Game Rules
+==========
+commandBlockOutput false
+doDaylightCycle false
+logAdminCommands false
+doMobSpawning false
+mobGriefing false
+
+FUTURE: Lobby Status scoreboard (lobbyStatus)
+=====================================
+Used to specify lobby position (or trigger movements) of each player
+0 = Move to main lobby
+1 = In main lobby
+FUTURE: 2 = Move to SpeedCraft
+FUTURE: 3 = in SpeedCraft
 
 
 Current Race scoreboard (current)
