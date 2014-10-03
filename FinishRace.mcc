@@ -35,3 +35,5 @@ fill clock:
 				}
 			}
 		fill ~1 ~ ~ ~-4 ~ ~ wool
+		
+#TODO: WHEN NO PLAYERS LEFT (All DISCONNECTED)

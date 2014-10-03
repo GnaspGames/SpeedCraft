@@ -13,7 +13,7 @@ fill clock:
 			scoreboard players set @a checkpoints 0
 			scoreboard players set @a current 0
 			scoreboard objectives setdisplay sidebar checkpoints
-			gamemode adventure @a
+			title @a times 5 10 5
 			title @a title Go!
 			tp @a @e[name=Current_Start]
 			effect @a 1 1000 15 true

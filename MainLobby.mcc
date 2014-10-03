@@ -1,0 +1,19 @@
+###################### PLAYER HANDLING #########################
+
+## SPAWN ##
+# Capture players at spawn and set then to move to the main lobby
+fill clock:
+	scoreboard players set @a[x=0,y=64,z=0,r=11] lobbyStatus 0
+
+## MOVE TO MAIN LOBBY ##
+# Handle players that need to move to main lobby
+# @a[score_lobbyStatus_min=0,score_lobbyStatus=0]
+fill clock:
+	testfor @a[score_lobbyStatus_min=0,score_lobbyStatus=0]
+		fill ~1 ~ ~ ~5 ~ ~ redstone_block
+			tp @a[score_lobbyStatus_min=0,score_lobbyStatus=0] 0 64 500 0 0
+			gamemode adventure @a[score_lobbyStatus_min=0,score_lobbyStatus=0]
+			effect @a[score_lobbyStatus_min=0,score_lobbyStatus=0] minecraft:saturation 1000000 20 true
+			spawnpoint @a[score_lobbyStatus_min=0,score_lobbyStatus=0] 0 64 500
+			scoreboard players set @a[score_lobbyStatus_min=0,score_lobbyStatus=0] lobbyStatus 1
+		fill ~-1 ~ ~ ~-5 ~ ~ wool 5
