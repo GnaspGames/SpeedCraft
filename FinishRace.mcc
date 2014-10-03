@@ -8,7 +8,7 @@ fill clock:
 	execute @e[name=Current_Finish] ~ ~ ~ clear @a[r=3]
 	execute @e[name=Current_Finish] ~ ~ ~ tp @a[r=3] @e[name=Current_Lobby,c=1]
 
-## FINISH LINE ##
+## WHEN SOMEONE WINS ##
 
 fill clock:
 	testfor @a[score_current_min=1,score_current=1]
