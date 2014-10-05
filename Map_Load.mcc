@@ -1,0 +1,48 @@
+###################### LOAD/RESET MAP ##########################
+
+# Initial Trigger Load/Reset
+button:
+	fill ~1 ~ ~ ~3 ~ ~ redstone_block
+		scoreboard objectives remove vars
+		scoreboard objectives add vars dummy Variables
+		scoreboard players set MapState vars 0
+	fill ~1 ~ ~ ~-3 ~ ~ wool 5
+
+# Check for MapState 0, meaning that the map needs to be loaded.
+fill clock:
+	scoreboard players test MapState vars 0 0
+		fill ~1 ~ ~ ~7 ~ ~ redstone_block
+			# Gamerules
+			gamerule commandBlockOutput false
+			gamerule doDaylightCycle false
+			gamerule logAdminCommands false
+			gamerule doMobSpawning false
+			gamerule mobGriefing false
+			# Add lobbyStatus objective to move players to lobby
+			scoreboard objectives remove lobbyStatus
+			scoreboard objectives add lobbyStatus dummy Lobby Status
+			# TODO: Add any other 'game state' variables to trigger game load/reset.
+			# e.g. scoreboard players set MyGame_GameState vars 0
+			# Change MapState to loaded
+			scoreboard players set MapState vars 1
+		fill ~-1 ~ ~ ~-7 ~ ~ wool 5
+
+###################### EXAMPLE:         ##########################
+###################### SETUP/RESET GAME ##########################
+
+# Check for MyGame_GameState 1, meaning that the game needs to be loaded.
+fill clock:
+	scoreboard players test MyGame_GameState vars 0 0
+		fill ~1 ~ ~ ~9 ~ ~ redstone_block
+			
+			# Add any additional game variables needed
+			# e.g. scoreboard players set [MyGame_ExampleVariable] vars 1
+			
+			# Add any objectives required for game.
+			# e.g. scoreboard objectives remove [example_objective_reference]
+			# e.g. scoreboard objectives add [example_objective_reference] dummy [Example Objective Description]
+			# e.g. scoreboard players set @a example_objective_reference 0
+				
+			# Move on to MyGame_GameState 1
+			scoreboard players set MyGame_GameState vars 1	
+		fill ~-1 ~ ~ ~-9 ~ ~ wool 5
