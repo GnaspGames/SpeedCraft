@@ -1,3 +1,8 @@
+Locations
+=========
+WorldSpawn/Dev:	0 64 0
+Map Lobby:		0 64 500
+
 Global Variables scoreboard (vars)
 ==================================
 Uses fake players to hold values
