@@ -16,7 +16,7 @@ fill clock:
 			scoreboard players add @p[score_current_min=1] races 1
 			scoreboard objectives setdisplay sidebar races
 			title @a title {"text":"","color":"green","extra":[{"selector":"@p[score_current_min=1]"},{"text":" wins!"}]}
-			execute @e[name=Current_Finish] ~ ~10 ~ summon FireworksRocketEntity ~ ~2 ~ 
+			summon FireworksRocketEntity 0 66 500
 			{
 				LifeTime:20, FireworksItem:
 				{
