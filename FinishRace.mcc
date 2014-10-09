@@ -6,12 +6,13 @@ fill clock:
 	execute @e[name=Current_Finish] ~ ~ ~ gamemode 3 @a[r=3]
 	execute @e[name=Current_Finish] ~ ~ ~ effect @a[r=3] clear
 	execute @e[name=Current_Finish] ~ ~ ~ clear @a[r=3]
-	execute @e[name=Current_Finish] ~ ~ ~ tp @a[r=3] 0 64 500
+	execute @e[name=Current_Finish] ~ ~ ~ scoreboard players set @a[r=3] lobbyStatus 0
 
 ## WHEN SOMEONE WINS ##
 
 fill clock:
 	testfor @a[score_current_min=1,score_current=1]
+		# use a repeater delay to stop from executing straight away. Give time for the player to be send to the lobby.
 		fill ~1 ~ ~ ~4 ~ ~ redstone_block
 			scoreboard players add @p[score_current_min=1] races 1
 			scoreboard objectives setdisplay sidebar races
