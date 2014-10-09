@@ -1,9 +1,17 @@
 ###################### NEW RACE ##########################
 
 ## REQUEST NEW RACE ##
+
+# From development area
 # Single command block with a button that can be placed anywhere
 button:
 	scoreboard players set SpeedCraft_RaceState vars 2
+	
+# From lobby
+# An armor stand named "SpeedCraft" is used to create a teleport.
+fill clock:
+	execute @e[type=ArmorStand,name=SpeedCraft] ~ ~ ~1 testfor @a[r=0]
+		scoreboard players set SpeedCraft_RaceState vars 2
 
 ## START NEW RACE#
 # This checks to see if SpeedCraft_RaceState = 2 and then executes all other commands using a 1 time fill strip
