@@ -32,5 +32,5 @@ Lobby Status scoreboard (lobbyStatus)
 Used to specify lobby position (or trigger movements) of each player
 0 = Move to main lobby
 1 = In main lobby
-FUTURE: 2 = Move to SpeedCraft
-FUTURE: 3 = in SpeedCraft
+2 = Move to SpeedCraft
+3 = in SpeedCraft
