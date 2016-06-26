@@ -12,11 +12,11 @@ Global Variables scoreboard (vars)
 4 = Championship
 
 **FUTURE: SpeedCraft_CurrentTrack**
-1 = Jungle
-2 = Beach
-3 = ?
-4 = ?
-5 = ?
+1 = Jungle (running)
+2 = Beach (running)
+3 = Ice Plains (boats)
+4 = Moutains/Caves (elytra)
+5 = ???
 
 **SpeedCraft_RaceState**
 1 = Stopped
